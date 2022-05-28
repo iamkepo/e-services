@@ -3,11 +3,29 @@
 <head>
   <title>Express</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
-
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+
+  <div x-data="{ message: 'I ❤️ Alpine' }" >
+    <h1>Express</h1>
+    <p x-text="message">y</p>
+  </div>
+  
+  <div x-data data-message="Hello World!">
+    <button @click="alert($root.dataset.message)">Say Hi</button>
+</div>
+<div x-data="{ open: false }">
+        <button @click="open = ! open">Toggle Modal</button>
+ 
+        <template x-teleport="body">
+            <div x-show="open">
+                Modal contents...
+            </div>
+        </template>
+    </div>
+ 
+    <div>Some other content placed AFTER the modal markup.</div>
 </body>
 
 </html>

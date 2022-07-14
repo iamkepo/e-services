@@ -1,50 +1,48 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs/promises');
 
-const baseURL = `https://react-icons.github.io/react-icons/icons?name=`;
-
-let tags = ["ai","bs","bi","di","fi","fc","fa","gi","go","gr","hi","im","io","io5","md","ri","si","tb","ti","vsc","wi","cg"];
-let browser = null;
-let page = null;
+const baseURL = `https://react-icons.github.io`;
+const home = "/react-icons/";
 
 const geticons = async () => {
     
-  browser = await puppeteer.launch({headless: true});
-  page = await browser.newPage();
-
-  let data = [];
-
-  // for (let i = 0; i < tags.length; i++) {
-  //   data[i] = await getlist(tags[i]);
-  // }
-  data[0] = await getlist(tags[0]);
-	
-	console.log("ok");
-  await fs.writeFile("icons.json", JSON.stringify(data))
+  const browser = await puppeteer.launch({headless: true});
+  const page = await browser.newPage();
+  await page.goto(baseURL+home);
+  const tags = await page.evaluate(() => {
+    let tab = [];
+    let elements = document.querySelectorAll("li a");
+    for (element of elements) {
+      tab.push(element.attributes.href.value)
+    }
+    return tab;
+  });
+  for (let i = 1; i < tags.length; i++) {
+    await page.goto(baseURL+tags[i]);
+    const  data = await page.evaluate(() => {
+      let infos = {
+        name: document.querySelector(".main")?.textContent.trim(),
+        licence: document.querySelectorAll(".iconset--info td a")[0]?.textContent.trim(),
+        source: document.querySelectorAll(".iconset--info td a")[1]?.textContent.trim()
+      };
+      let tab = [];
+      let elements = document.querySelectorAll(".icons .item");
+      for (element of elements) {
+        tab.push({
+          svg: element.querySelector('.icon')?.innerHTML,
+          name: element.querySelector('.name')?.textContent.trim()
+        })
+      }
+      return {... infos, icons: tab};
+    });
+    
+    console.log(data.name.replaceAll(" ", "-")+".json");
+    await fs.writeFile(data.name.replaceAll(" ", "-")+".json", JSON.stringify(data))
+  }
 	await browser.close();
 };
 
-const getlist = async (tag) => {
-  await page.goto(baseURL+tag);
-  const icons = await page.evaluate(() => {
-    let infos = {
-      name: document.querySelector(".main")?.textContent.trim(),
-      licence: document.querySelectorAll(".iconset--info td a")[0]?.textContent.trim(),
-      source: document.querySelectorAll(".iconset--info td a")[1]?.textContent.trim()
-    };
-    let tab = [];
-    let elements = document.querySelectorAll(".icons .item");
-    for (element of elements) {
-      tab.push({
-        svg: element.querySelector('svg'),
-        name: element.querySelector('.name')?.textContent.trim()
-      })
-    }
-    return {... infos, icons: tab};
-  });
-  
-  return icons;
-}
+
 
 module.exports = {
   get: geticons

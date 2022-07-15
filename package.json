@@ -12,5 +12,8 @@
     "express": "~4.16.1",
     "morgan": "~1.9.1",
     "puppeteer": "^15.4.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
   }
 }

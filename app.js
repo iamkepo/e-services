@@ -18,6 +18,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 var icons = require('./strapping/icons');
-//icons.get()
+icons.get()
 
 module.exports = app;

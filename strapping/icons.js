@@ -1,6 +1,8 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs/promises');
 
+require("dotenv").config();
+
 const baseURL = `https://react-icons.github.io`;
 const home = "/react-icons/";
 
@@ -8,7 +10,7 @@ const geticons = async () => {
     
   const browser = await puppeteer.launch({headless: true});
   const page = await browser.newPage();
-  await page.goto(baseURL+home);
+  await page.goto(baseURL+home, { waitUntil: "networkidle2" });
   const tags = await page.evaluate(() => {
     let tab = [];
     let elements = document.querySelectorAll("li a");
@@ -18,7 +20,8 @@ const geticons = async () => {
     return tab;
   });
   for (let i = 1; i < tags.length; i++) {
-    await page.goto(baseURL+tags[i]);
+    await page.goto(baseURL+tags[i], { timeout: 0 });
+    console.log("goto: "+baseURL+tags[i]);
     const  data = await page.evaluate(() => {
       let infos = {
         name: document.querySelector(".main")?.textContent.trim(),
@@ -36,8 +39,8 @@ const geticons = async () => {
       return {... infos, icons: tab};
     });
     
-    console.log(data.name.replaceAll(" ", "-")+".json");
-    await fs.writeFile(data.name.replaceAll(" ", "-")+".json", JSON.stringify(data))
+    console.log("get icon: "+data.name.replaceAll(" ", "-")+".json");
+    await fs.writeFile(process.env.DATA_ICONS_HARD_PATH+data.name.replaceAll(" ", "-")+".json", JSON.stringify(data))
   }
 	await browser.close();
 };

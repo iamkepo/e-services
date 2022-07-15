@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-var icons = require('./strapping/icons');
-icons.get()
+// var icons = require('./strapping/icons');
+// icons.get()
 
 module.exports = app;

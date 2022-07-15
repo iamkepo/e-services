@@ -20,4 +20,9 @@ app.use('/users', usersRouter);
 // var icons = require('./strapping/icons');
 // icons.get()
 
+// var instagram = require('./robot/instagram');
+// instagram.connexion();
+
+// var twitter = require('./robot/twitter');
+// twitter.connexion();
 module.exports = app;

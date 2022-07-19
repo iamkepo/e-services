@@ -25,4 +25,8 @@ app.use('/users', usersRouter);
 
 // var twitter = require('./robot/twitter');
 // twitter.connexion();
+
+// var screenshot = require('./strapping/screenshot');
+// screenshot.get("https://classe19.com");
+
 module.exports = app;

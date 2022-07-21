@@ -8,8 +8,8 @@ console.log('trying to login');
 let refreshToken;
 
 instance.post('/login', {
-  email: 'jeanbon@gmail.com',
-  password: 'cuillere'
+  email: 'me@gmail.com',
+  password: '123'
 }).then((response) => {
   console.log('auth success');
 
@@ -21,7 +21,7 @@ instance.post('/login', {
 });
 
 function loadUserInfos() {
-  instance.get('/me').then((response) => {
+  instance.get('/user').then((response) => {
     console.log(response.data);
   }).catch((err) => {
     console.log(err.response.status);

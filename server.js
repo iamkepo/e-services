@@ -1,47 +1,42 @@
 var express = require('express');
+var app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
-var app = express();
+var connect = require('./helper/connect');
 
+//app use
+app.use(cors())
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//page routes import
+var index = require('./routes/index');
 
-// var icons = require('./strapping/icons');
-// icons.get()
+//api routes import
+var loginAPI = require('./routes/api/login');
+var registerAPI = require('./routes/api/register');
+var usersAPI = require('./routes/api/users');
+var userAPI = require('./routes/api/user');
+var refreshTokenAPI = require('./routes/api/refreshToken');
 
-// var instagram = require('./robot/instagram');
-// instagram.connexion();
+//page routes use
+app.use('/', index);
 
-// var twitter = require('./robot/twitter');
-// twitter.connexion();
+//api routes use
+app.use('/api/register', registerAPI);
+app.use('/api/login', loginAPI);
+app.use('/api/refreshToken', refreshTokenAPI);
+app.use('/api/users', usersAPI);
+app.use('/api/user', userAPI);
 
-// var screenshot = require('./strapping/screenshot');
-// screenshot.get("https://classe19.com");
-var loginRouter = require('./routes/login');
-var setuserRouter = require('./routes/setuser');
-var getusersRouter = require('./routes/getusers');
-var getuserRouter = require('./routes/getuser');
-var getconfigRouter = require('./routes/getconfig');
-var getrandomcolorRouter = require('./routes/getrandomcolor');
-var getcolorRouter = require('./routes/getcolor');
-
-var connect = require('./db/connect');
-
-//route
-app.use('/', indexRouter);
-app.use('/login', loginRouter);
-app.use('/setuser', setuserRouter);
-app.use('/getusers', getusersRouter);
-app.use('/getuser', getuserRouter);
-app.use('/getconfig', getconfigRouter);
-app.use('/getrandomcolor', getrandomcolorRouter);
-app.use('/getcolor', getcolorRouter);
 
 connect.start().then(()=>{
   //connect.testColors();
@@ -61,5 +56,17 @@ connect.start().then(()=>{
     
   // });
 });
+
+// var icons = require('./strapping/icons');
+// icons.get()
+
+// var instagram = require('./robot/instagram');
+// instagram.connexion();
+
+// var twitter = require('./robot/twitter');
+// twitter.connexion();
+
+// var screenshot = require('./strapping/screenshot');
+// screenshot.get("https://classe19.com");
 
 module.exports = app;

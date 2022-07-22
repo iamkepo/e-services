@@ -21,11 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 var index = require('./routes/index');
 
 //api routes import
-var loginAPI = require('./routes/api/login');
 var registerAPI = require('./routes/api/register');
+var loginAPI = require('./routes/api/login');
+var refreshTokenAPI = require('./routes/api/refreshToken');
 var usersAPI = require('./routes/api/users');
 var userAPI = require('./routes/api/user');
-var refreshTokenAPI = require('./routes/api/refreshToken');
+var meAPI = require('./routes/api/me');
 
 //page routes use
 app.use('/', index);
@@ -36,6 +37,7 @@ app.use('/api/login', loginAPI);
 app.use('/api/refreshToken', refreshTokenAPI);
 app.use('/api/users', usersAPI);
 app.use('/api/user', userAPI);
+app.use('/api/me', meAPI);
 
 
 connect.start().then(()=>{

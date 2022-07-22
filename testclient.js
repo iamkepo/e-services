@@ -84,5 +84,4 @@ const user = {
   password: '123'
 }
 
-
 loginUser(user);

@@ -4,8 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
 
 var connect = require('./helper/connect');
 
@@ -40,24 +38,7 @@ app.use('/api/user', userAPI);
 app.use('/api/me', meAPI);
 
 
-connect.start().then(()=>{
-  //connect.testColors();
-  //connect.insertCellules();
-  // io.on('connection', (socket) => {
-  //   console.log('a user connected');
-  
-  //   socket.on('Click', (click) => {
-  //     //console.log(click);
-  //     connect.updateCellule(click);
-  //     io.emit('Click', click);
-  //   });
-    
-  //   socket.on('disconnect', () => {
-  //     console.log('user disconnected');
-  //   });
-    
-  // });
-});
+connect.start();
 
 // var icons = require('./strapping/icons');
 // icons.get()

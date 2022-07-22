@@ -12,12 +12,12 @@
   <title>E services</title>
   <link rel="apple-touch-icon" href="./images/logo.png" />
   <link rel="stylesheet" href="./stylesheets/style.css">
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="./javascripts/cdn.min.js"></script>
 </head>
 <body>
   
   <div x-data="{ message: 'I ❤️ Alpine' }" >
-    <h1>Express</h1>
+    <h1>E services</h1>
     <p x-text="message">y</p>
   </div>
   
@@ -36,6 +36,8 @@
  
     <div>Some other content placed AFTER the modal markup.</div>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="./javascripts/axios.min.js"></script>
+    <script src="./javascripts/utils.js"></script>
     <script src="./javascripts/index.js"></script>
 </body>
 </html>

@@ -1,10 +1,14 @@
+const { Server } = require('socket.io');
+
 function start(server) {
-  const io = require('socket.io')(server);
+  
+  const io = new Server(server);
+
   io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log('a user connected: '+ socket.id);
     socket.on('Click', (click) => {
       //console.log(click);
-      io.emit('Click', click);
+      socket.broadcast.emit('Click', click);
     });
     
     socket.on('disconnect', () => {

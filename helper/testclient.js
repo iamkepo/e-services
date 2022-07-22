@@ -34,8 +34,8 @@ function loginUser(data) {
   console.log('trying to login');
   instance.post('/login', data).then((response) => {
     console.log('auth success');
-    getUsersInfos();
     instance.defaults.headers.common['authorization'] = `Bearer ${response.data.accessToken}`;
+    getUsersInfos();
     refreshToken = response.data.refreshToken;
   }).catch((err) => {
     console.log(err.response?.status);

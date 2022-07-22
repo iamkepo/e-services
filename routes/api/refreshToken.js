@@ -3,7 +3,7 @@ var router = express.Router();
 const jwt = require('jsonwebtoken');
 var auth = require('../../helper/auth');
 
-router.get('/', function(req, res) {
+router.post('/', (req, res) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
   if (!token) {

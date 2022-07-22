@@ -18,8 +18,8 @@ router.post('/', async (req, res) => {
       res.status(401).send('invalid credentials');
       return ;
     } else {
-      const accessToken = auth.generateAccessToken(objet);
-      const refreshToken = auth.generateRefreshToken(objet);
+      const accessToken = auth.generateAccessToken(response);
+      const refreshToken = auth.generateRefreshToken(response);
       res.send({
         accessToken,
         refreshToken,

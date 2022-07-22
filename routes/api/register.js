@@ -12,9 +12,7 @@ router.post('/', async (req, res) => {
   connect.collection.users
   .findOne(quary)
   .then((response)=> {
-      //console.log(response);
       if (response == null) {
-        connect.updateColor(req.body.color),
         connect.collection.users
         .insertOne(objet).then((response1)=>{
           res.json(response1);
@@ -22,7 +20,6 @@ router.post('/', async (req, res) => {
       } else {
         res.json({message: "cet email est déja lié à un compte"});
       }
-
   });
   
 });

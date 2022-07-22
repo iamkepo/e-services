@@ -4,8 +4,17 @@ const { ObjectId } = require('mongodb');
 var connect = require('../../helper/connect');
 var auth = require('../../helper/auth');
 
-router.get('/', auth.authenticateToken, (req, res) => {
-  res.json(req.user);
+router.get('/:id', auth.authenticateToken, (req, res) => {
+  connect.collection.users
+  .findOne({_id: ObjectId(req.params.id)}, { projection: { password: 0 } })
+  .then((response)=> {
+    if (response == null) {
+      res.send('invalid credentials');
+      return ;
+    } else {
+      res.json(response);
+    }
+  });
 });
 
 module.exports = router;

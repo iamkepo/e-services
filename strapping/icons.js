@@ -1,6 +1,5 @@
 const puppeteer = require('puppeteer');
-const fs = require('fs/promises');
-var path = require('path');
+var connect = require('../helper/connect');
 
 require("dotenv").config();
 
@@ -35,14 +34,16 @@ const geticons = async () => {
       for (element of elements) {
         tab.push({
           svg: element.querySelector('.icon')?.innerHTML,
-          name: element.querySelector('.name')?.textContent.trim()
+          name: element.querySelector('.name')?.textContent.trim(),
+          group: infos
         })
       }
-      return {... infos, icons: tab};
+      return tab;
     });
     
-    console.log("get icon: "+path.join(__dirname, '../data/icons/')+data.name.replaceAll(" ", "-")+".json");
-    await fs.writeFile(path.join(__dirname, '../data/icons/')+data.name.replaceAll(" ", "-")+".json", JSON.stringify(data))
+    await connect.collection.icons.insertMany(data).then((response)=>{
+      console.log(response);
+    });
   }
 	await browser.close();
 };

@@ -19,29 +19,38 @@ app.use(express.static(path.join(__dirname, 'public')));
 var index = require('./routes/index');
 
 //api routes import
-var registerAPI = require('./routes/api/register');
-var loginAPI = require('./routes/api/login');
-var refreshTokenAPI = require('./routes/api/refreshToken');
-var usersAPI = require('./routes/api/users');
-var userAPI = require('./routes/api/user');
-var meAPI = require('./routes/api/me');
+var iconsAPI = require('./routes/api/service/icons');
+var iconAPI = require('./routes/api/service/icon');
+var usersAPI = require('./routes/api/service/users');
+var userAPI = require('./routes/api/service/user');
+
+var registerAPI = require('./routes/api/auth/register');
+var loginAPI = require('./routes/api/auth/login');
+var refreshTokenAPI = require('./routes/api/auth/refreshToken');
+var meAPI = require('./routes/api/auth/me');
 
 //page routes use
 app.use('/', index);
 
 //api routes use
-app.use('/api/register', registerAPI);
-app.use('/api/login', loginAPI);
-app.use('/api/refreshToken', refreshTokenAPI);
-app.use('/api/users', usersAPI);
-app.use('/api/user', userAPI);
-app.use('/api/me', meAPI);
+app.use('/api/service/icons', iconsAPI);
+app.use('/api/service/icon', iconAPI);
+app.use('/api/service/users', usersAPI);
+app.use('/api/service/user', userAPI);
+
+app.use('/api/auth/register', registerAPI);
+app.use('/api/auth/login', loginAPI);
+app.use('/api/auth/refreshToken', refreshTokenAPI);
+app.use('/api/auth/me', meAPI);
 
 
-connect.start();
 
-// var icons = require('./strapping/icons');
-// icons.get()
+connect.start().then(()=> {
+  // var icons = require('./strapping/icons');
+  // icons.get()
+});
+
+
 
 // var instagram = require('./robot/instagram');
 // instagram.connexion();

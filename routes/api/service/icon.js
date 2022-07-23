@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var connect = require('../../helper/connect');
-var auth = require('../../helper/auth');
+var connect = require('../../../helper/connect');
 
-router.get('/', auth.authenticateToken, (req, res) => {
-  connect.collection.users
-  .find({}).project({ password: 0 })
+router.get('/:name', (req, res) => {
+  
+  connect.collection.icons
+  .find({ name: req.params.name })
+  .project({ _id: 0 })
   .toArray(function (err, result) {
     if (err) {
       res.status(400).send("Error fetching listings!");

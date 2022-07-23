@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const fs = require('fs');
 var connect = require('../../helper/connect');
 var auth = require('../../helper/auth');
 

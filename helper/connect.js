@@ -25,5 +25,6 @@ module.exports = {
   start : run,
   collection: {
     users: client.db('services').collection('users'),
+    icons: client.db('services').collection('icons'),
   }
 };

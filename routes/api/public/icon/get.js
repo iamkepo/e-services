@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var connect = require('../../../helper/connect');
+var connect = require('../../../../helper/connect');
 
 router.get('/:name', (req, res) => {
   

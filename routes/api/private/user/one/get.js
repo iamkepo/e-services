@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const { ObjectId } = require('mongodb');
-var connect = require('../../../helper/connect');
-var auth = require('../../../helper/auth');
+var connect = require('../../../../../helper/connect');
+var auth = require('../../../../../helper/auth');
 
 router.get('/:id', auth.authenticateToken, (req, res) => {
   connect.collection.users

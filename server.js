@@ -19,29 +19,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 var index = require('./routes/index');
 
 //api routes import
-var iconsAPI = require('./routes/api/service/icons');
-var iconAPI = require('./routes/api/service/icon');
-var usersAPI = require('./routes/api/service/users');
-var userAPI = require('./routes/api/service/user');
+var API = require('./routes/route');
 
-var registerAPI = require('./routes/api/auth/register');
-var loginAPI = require('./routes/api/auth/login');
-var refreshTokenAPI = require('./routes/api/auth/refreshToken');
-var meAPI = require('./routes/api/auth/me');
+
+
 
 //page routes use
 app.use('/', index);
-
+ 
 //api routes use
-app.use('/api/service/icons', iconsAPI);
-app.use('/api/service/icon', iconAPI);
-app.use('/api/service/users', usersAPI);
-app.use('/api/service/user', userAPI);
+app.use('/api/public/icon/group/get', API.public.groupicon);
+app.use('/api/public/icon/get', API.public.icon);
+app.use('/api/public/auth/register', API.public.register);
+app.use('/api/public/auth/login', API.public.login);
+app.use('/api/public/auth/refreshToken', API.public.refreshToken);
 
-app.use('/api/auth/register', registerAPI);
-app.use('/api/auth/login', loginAPI);
-app.use('/api/auth/refreshToken', refreshTokenAPI);
-app.use('/api/auth/me', meAPI);
+app.use('/api/private/user/list/get', API.private.listuser);
+app.use('/api/private/user/one/get', API.private.user);
+app.use('/api/private/user/me', API.private.me);
 
 
 

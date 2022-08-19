@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var connect = require('../../../helper/connect');
-var auth = require('../../../helper/auth');
+var connect = require('../../../../../helper/connect');
+var auth = require('../../../../../helper/auth');
 
 router.get('/', auth.authenticateToken, (req, res) => {
   connect.collection.users

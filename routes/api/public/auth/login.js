@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const fs = require('fs');
-var connect = require('../../../helper/connect');
-var auth = require('../../../helper/auth');
+var connect = require('../../../../helper/connect');
+var auth = require('../../../../helper/auth');
 
 router.post('/', async (req, res) => {
   //console.log(req.body);

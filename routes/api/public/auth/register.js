@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
   .findOne(quary)
   .then((response)=> {
       if (response == null) {
-        connect.collection.users
+        connect.db.collection("users")
         .insertOne(objet).then((response1)=>{
           res.json(response1);
         });

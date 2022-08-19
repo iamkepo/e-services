@@ -30,6 +30,7 @@ app.use('/api/public/icon/one/get', route.api.public.icon);
 app.use('/api/public/auth/register', route.api.public.register);
 app.use('/api/public/auth/login', route.api.public.login);
 app.use('/api/public/auth/refreshToken', route.api.public.refreshToken);
+app.use('/api/public/stock/post', route.api.public.poststock),
 
 //api private
 app.use('/api/private/user/list/get', route.api.private.listuser);

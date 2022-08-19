@@ -7,6 +7,7 @@ module.exports = {
       register: require('./api/public/auth/register'),
       login: require('./api/public/auth/login'),
       refreshToken: require('./api/public/auth/refreshToken'),
+      poststock: require('./api/public/stock/post'),
     },
     private: {
       listuser: require('./api/private/user/list/get'),

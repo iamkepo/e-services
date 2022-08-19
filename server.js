@@ -46,8 +46,7 @@ app.use('/api/auth/me', meAPI);
 
 
 connect.start().then(()=> {
-  // var icons = require('./strapping/icons');
-  // icons.get()
+  
 });
 
 

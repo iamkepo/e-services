@@ -6,38 +6,38 @@
   <link rel="icon" href="./images/favicon.ico" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="e-service">
+  <meta name="keywords" content="Zappe">
   <meta name="keywords" content="e-services">
   <meta name="description" content="A votre disposition pour vos besoins de e services" />
-  <title>E services</title>
-  <link rel="apple-touch-icon" href="./images/logo.png" />
+  <title>Zappe | e-services</title>
   <link rel="stylesheet" href="./stylesheets/style.css">
   <script defer src="./javascripts/cdn.min.js"></script>
 </head>
 <body>
   
-  <div x-data="{ message: 'I ❤️ Alpine' }" >
-    <h1>E services</h1>
-    <p x-text="message">y</p>
-  </div>
-  
-  <div x-data data-message="Hello World!">
-    <button @click="alert($root.dataset.message)">Say Hi</button>
-</div>
-<div x-data="{ open: false }">
-        <button @click="open = ! open">Toggle Modal</button>
- 
-        <template x-teleport="body">
-            <div x-show="open">
-                Modal contents...
-            </div>
-        </template>
+  <header class="header">
+    <div class="header-box">
+      <h1 class="title">Zappe</h1>
     </div>
- 
-    <div>Some other content placed AFTER the modal markup.</div>
-    <script src="/socket.io/socket.io.js"></script>
+  </header>
+
+  <section class="section">
+    <article class="article">
+      <p class="description">
+        A votre disposition pour vos besoins de e-services
+      </p>
+      <button class="btn"><a href="#produits">Start</a></button>
+    </article>
+  </section>
+
+  <section class="produits" id="produits">
+    <article class="produit"></article>
+    <article class="produit"></article>
+    <article class="produit"></article>
+  </section>
+
+
     <script src="./javascripts/axios.min.js"></script>
-    <script src="./javascripts/utils.js"></script>
-    <script src="./javascripts/index.js"></script>
+    <script src="./javascripts/script.js"></script>
 </body>
 </html>

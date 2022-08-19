@@ -23,7 +23,7 @@ router.post('/', async (req, res) => {
     case "messages":
       connect.db.collection("messages")
       .insertOne(req.body.data)
-      .then(()=>{
+      .then((response)=>{
         res.json(response);
       });
       break;

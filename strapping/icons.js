@@ -41,7 +41,7 @@ const geticons = async () => {
       return tab;
     });
     
-    await connect.collection.icons.insertMany(data).then((response)=>{
+    await connect.db.collection("icons").insertMany(data).then((response)=>{
       console.log(response);
     });
   }

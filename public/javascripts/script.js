@@ -1,3 +1,4 @@
+window.addEventListener('load', (e) => { window.scrollTo(0, 0) })
 let header = document.querySelector(".header");
 
 let slideIndex = 0;

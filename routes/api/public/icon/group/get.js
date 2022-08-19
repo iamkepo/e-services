@@ -4,7 +4,7 @@ var connect = require('../../../../../helper/connect');
 
 router.get('/:group', (req, res) => {
   
-  connect.collection.icons
+  connect.db.collection("icons")
   .find({ "group.name": req.params.group.replaceAll("-", " ") })
   .project({ _id: 0, group: 0 })
   .toArray(function (err, result) {

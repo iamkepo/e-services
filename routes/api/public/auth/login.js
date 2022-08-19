@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     email: req.body.email,
     password: req.body.password,
   };
-  connect.collection.users
+  connect.db.collection("users")
   .findOne(objet)
   .then((response)=> {
     //console.log(response);

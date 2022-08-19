@@ -15,28 +15,26 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//page routes import
-var index = require('./routes/index');
-
 //api routes import
-var API = require('./routes/route');
+var route = require('./routes/route');
 
 
 
 
-//page routes use
-app.use('/', index);
+//page
+app.use('/', route.page.index);
  
-//api routes use
-app.use('/api/public/icon/group/get', API.public.groupicon);
-app.use('/api/public/icon/get', API.public.icon);
-app.use('/api/public/auth/register', API.public.register);
-app.use('/api/public/auth/login', API.public.login);
-app.use('/api/public/auth/refreshToken', API.public.refreshToken);
+//api public
+app.use('/api/public/icon/group/get', route.api.public.groupicon);
+app.use('/api/public/icon/one/get', route.api.public.icon);
+app.use('/api/public/auth/register', route.api.public.register);
+app.use('/api/public/auth/login', route.api.public.login);
+app.use('/api/public/auth/refreshToken', route.api.public.refreshToken);
 
-app.use('/api/private/user/list/get', API.private.listuser);
-app.use('/api/private/user/one/get', API.private.user);
-app.use('/api/private/user/me', API.private.me);
+//api private
+app.use('/api/private/user/list/get', route.api.private.listuser);
+app.use('/api/private/user/one/get', route.api.private.user);
+app.use('/api/private/user/me', route.api.private.me);
 
 
 

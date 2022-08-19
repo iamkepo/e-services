@@ -5,7 +5,7 @@ var connect = require('../../../../../helper/connect');
 var auth = require('../../../../../helper/auth');
 
 router.get('/:id', auth.authenticateToken, (req, res) => {
-  connect.collection.users
+  connect.db.collection("users")
   .findOne({_id: ObjectId(req.params.id)}, { projection: { password: 0 } })
   .then((response)=> {
     if (response == null) {

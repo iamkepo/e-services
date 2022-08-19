@@ -1,4 +1,4 @@
-const { MongoClient, ObjectId } = require('mongodb');
+const { MongoClient } = require('mongodb');
 
 const uri = `mongodb://localhost:27017`;
 const clusterUrl = process.env.MONGODB_URL || uri;
@@ -23,8 +23,5 @@ async function run() {
 
 module.exports = {
   start : run,
-  collection: {
-    users: client.db('services').collection('users'),
-    icons: client.db('services').collection('icons'),
-  }
+  db: client.db('services'),
 };

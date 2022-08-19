@@ -4,7 +4,7 @@ var connect = require('../../../../../helper/connect');
 var auth = require('../../../../../helper/auth');
 
 router.get('/', auth.authenticateToken, (req, res) => {
-  connect.collection.users
+  connect.db.collection("users")
   .find({}).project({ password: 0 })
   .toArray(function (err, result) {
     if (err) {

@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     password: req.body.password,
   };
   var quary = {email: req.body.email};
-  connect.collection.users
+  connect.db.collection("users")
   .findOne(quary)
   .then((response)=> {
       if (response == null) {

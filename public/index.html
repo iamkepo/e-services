@@ -13,11 +13,12 @@
   <link rel="stylesheet" href="./stylesheets/style.css">
   <script defer src="./javascripts/cdn.min.js"></script>
 </head>
-<body>
+<body x-data="{ open: false }">
   
   <header class="header">
     <div class="header-box">
       <h1 class="title">Zappe</h1>
+      <button @click="open = true" class="btn-p">Nous contacter</button>
     </div>
   </header>
 
@@ -31,18 +32,63 @@
   </section>
 
   <section class="produits" id="produits">
+
     <article class="produit">
       <img src="./images/icons.svg" alt="icons" class="produit-img"/>
       <div class="produit-text"></div>
     </article>
+
     <article class="produit">
       <div class="produit-text"></div>
       <img src="./images/stock.svg" alt="stock" class="produit-img"/>
     </article>
+
   </section>
 
+  <ul class="icons">
+    <li class="fa fa-facebook"></li>
+    <li class="fa fa-twitter"></li>
+    <li class="fa fa-linkedin"></li>
+    <li class="fa fa-instagram"></li>
+    <li class="fa fa-whatsapp"></li>
+    <li class="fa fa-youtube"></li>
+  </ul>
 
-    <script src="./javascripts/axios.min.js"></script>
-    <script src="./javascripts/script.js"></script>
+  <footer class="footer">
+
+    <div class="cols">
+      <ul class="col">
+        <li class="col-title">Service client</li>
+        <li @click="open = true" class="col-link">Nous contacter</li>
+        <li class="col-link">Remboursement</li>
+        <li class="col-link">Réclamations</li>
+        <li class="col-link">Demander une facture</li>
+      </ul>
+      <ul class="col">
+        <li class="col-title">à propos de nous</li>
+        <li class="col-link">Qui sommes-nous</li>
+        <li class="col-link">Notre mission</li>
+        <li class="col-link">Nos partenaires</li>
+      </ul>
+    </div>
+
+    <div class="copyright">
+      <i class="far fa-copyright"></i> 
+      <span>copyright 2022</span>
+    </div>  
+  </footer>
+  <template x-teleport="body">
+    <div class="projets" x-show="open">
+      <div class="send-email">
+        <input class="input-item nom" type="text" placeholder="Votre Nom" />
+        <input class="input-item email" type="text" placeholder="Votre Addresse Email" />
+        <textarea class="input-item message"  placeholder="Votre Message" style="height: 30%"></textarea>
+        <button class="send" onclick="isEmpty()">Send</button>
+        <button class="close" @click="open = false"> Close </button>
+      </div>
+    </div>
+  </template>
+  <script src="./javascripts/axios.min.js"></script>
+  <script src="./javascripts/script.js"></script>
 </body>
 </html>

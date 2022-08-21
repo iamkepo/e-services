@@ -7,7 +7,7 @@ let timer = null;
 showSlides();
 
 function showSlides() {
-  if (slideIndex > 4) {slideIndex = 0}
+  if (slideIndex > 3) {slideIndex = 0}
   header.style.backgroundImage = "url('./images/carroucel"+slideIndex+".svg')";
   slideIndex++;
   timer = setTimeout(showSlides, 7000); 
@@ -23,3 +23,39 @@ window.addEventListener('scroll', e=> {
   }
 
 })
+
+const send = (data) => {
+  axios({
+    method: "post",
+    url: 'http://localhost:3000/api/public/stock/post', 
+    data: {
+      data: data,
+      table: "messages"
+    }
+  })
+  .then((response) => {
+    document.querySelector(".nom").value = "";
+    document.querySelector(".email").value = "";
+    document.querySelector(".message").value = "";
+    alert("Votre message été envoyer avec succès");
+    document.querySelector(".close").click();
+  })
+  .catch((err) => {
+    console.log(err);
+    alert("Désolé votre message ne peut être envoyer")
+  });
+}
+function isEmpty() {
+  let data = {
+    nom: document.querySelector(".nom").value,
+    email: document.querySelector(".email").value,
+    message: document.querySelector(".message").value
+  };
+  for (const key in data) {
+    if (data[key] === "") {
+      alert("Le champ "+key+" est vide");
+      return;
+    }
+  }
+  send(data);
+}

@@ -28,9 +28,9 @@ const geticons = async () => {
   });
   await connect.db.collection("group_icons").insertMany(tags);
   console.log(tags);
-  for (let i = 1; i < tags.length; i++) {
-    await page.goto(baseURL+tags[i].link, { timeout: 0 });
-    console.log("goto page: "+baseURL+tags[i].link);
+  tags.forEach(async (tag) => {
+    await page.goto(`https://react-icons.github.io${tag.link}`, { timeout: 0 });
+    console.log("goto page: "+`https://react-icons.github.io${tag.link}`);
     const  data = await page.evaluate(() => {
       let infos = {
         name: document.querySelector(".main")?.textContent.trim(),
@@ -43,7 +43,7 @@ const geticons = async () => {
         tab.push({
           svg: element.querySelector('.icon')?.innerHTML,
           name: element.querySelector('.name')?.textContent.trim(),
-          group_id: tags[i]._id
+          group_id: tag._id
         })
       }
       return {tab, infos};
@@ -53,12 +53,12 @@ const geticons = async () => {
       console.log(response);
     });
     await connect.db.collection("group_icons")
-    .updateOne({_id: ObjectId(tags[i]._id)},
-    { $set: { name: data.infos.name, licence: data.infos.licence, source: data.infos.source, link: baseURL+tags[i].link } })
+    .updateOne({_id: ObjectId(tag._id)},
+    { $set: { name: data.infos.name, licence: data.infos.licence, source: data.infos.source, link: `https://react-icons.github.io${tag.link}` } })
     .then((response)=>{
       console.log(response);
     });
-  }
+  });
 	await browser.close();
 };
 

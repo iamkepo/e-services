@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "user": "node ./test/user.js",
-    "createicon": "node ./test/createicon.js"
+    "icon": "node ./test/icon.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

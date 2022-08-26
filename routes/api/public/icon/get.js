@@ -2,11 +2,11 @@ var express = require('express');
 const connect = require('../../../../helper/connect');
 var router = express.Router();
 
-router.get('/:group_id', (req, res) => {
+router.get('/:group', (req, res) => {
   
   connect.db.collection("icons")
-  .find({ group_id: req.params.group_id })
-  .project({ _id: 0, group_id: 0 })
+  .find({ group: req.params.group })
+  .project({ _id: 0, group: 0 })
   .toArray(function (err, result) {
     if (err) {
       res.status(400).send("Error fetching listings!");

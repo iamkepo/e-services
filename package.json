@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "test": "node ./helper/testclient.js"
+    "user": "node ./test/user.js",
+    "createicon": "node ./test/createicon.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

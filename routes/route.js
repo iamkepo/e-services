@@ -3,14 +3,16 @@ module.exports = {
   api: {
     public: {
       poststock: require('./api/public/stock/post'),
+      groupicon: require('./api/public/icon/group/get'),
+      icon: require('./api/public/icon/get'),
     },
     private: {
       register: require('./api/private/auth/register'),
       login: require('./api/private/auth/login'),
       refreshToken: require('./api/private/auth/refreshToken'),
-      listuser: require('./api/private/user/list/get'),
-      user: require('./api/private/user/one/get'),
+      user: require('./api/private/user/get'),
       me: require('./api/private/user/me/get'),
+      createicon: require('./api/private/icon/create'),
     }
   },
   page: {

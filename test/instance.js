@@ -30,58 +30,34 @@ instance.interceptors.response.use(
   }
 );
 
-function loginUser(data) {
+function login(user, callback) {
   console.log('trying to login');
-  instance.post('/login', data).then((response) => {
+  instance.post('/private/auth/login', user).then((response) => {
     console.log('auth success');
     instance.defaults.headers.common['authorization'] = `Bearer ${response.data.accessToken}`;
-    getUsersInfos();
     refreshToken = response.data.refreshToken;
-  }).catch((err) => {
-    console.log(err.response?.status);
-  });
-}
-
-function loadUserInfos() {
-  instance.get('/me').then((response) => {
-    console.log(response.data);
-  }).catch((err) => {
-    console.log(err.response?.status);
-  });
-}
-
-function getUserInfos(id) {
-  instance.get('/user/'+id).then((response) => {
-    if (response.status === 200) {
-      console.log(response.data);
-    } else {
-      console.log(response);
+    if (callback) {
+      callback()
     }
   }).catch((err) => {
     console.log(err.response?.status);
   });
 }
-
-function getUsersInfos() {
-  instance.get('/users').then((response) => {
-      console.log(response.data);
+function me() {
+  instance.get('/private/auth/me').then((response) => {
+    console.log(response.data);
   }).catch((err) => {
     console.log(err.response?.status);
   });
 }
-
-function registerUser(data) {
+function register(user) {
   console.log('trying to register');
-  instance.post('/register', data).then((response) => {
+  instance.post('/private/auth/register', user).then((response) => {
     console.log(response.data);
   }).catch((err) => {
     console.log(err.response?.status);
   });
 }
 
-const user = {
-  email: 'user1@gmail.com',
-  password: '123'
-}
 
-loginUser(user);
+module.exports = {instance, refreshToken, login, register, me}

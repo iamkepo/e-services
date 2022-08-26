@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const { ObjectId } = require('mongodb');
 var connect = require('../helper/connect');
 
 require("dotenv").config();
@@ -16,13 +17,20 @@ const geticons = async () => {
     let tab = [];
     let elements = document.querySelectorAll("li a");
     for (element of elements) {
-      tab.push(element.attributes.href.value)
+      tab.push({
+        name: element.textContent.trim(),
+        licence: "",
+        source: "",
+        link:element.attributes.href.value
+      })
     }
     return tab;
   });
+  await connect.db.collection("group_icons").insertMany(tags);
+  console.log(tags);
   for (let i = 1; i < tags.length; i++) {
-    await page.goto(baseURL+tags[i], { timeout: 0 });
-    console.log("goto page: "+baseURL+tags[i]);
+    await page.goto(baseURL+tags[i].link, { timeout: 0 });
+    console.log("goto page: "+baseURL+tags[i].link);
     const  data = await page.evaluate(() => {
       let infos = {
         name: document.querySelector(".main")?.textContent.trim(),
@@ -35,13 +43,19 @@ const geticons = async () => {
         tab.push({
           svg: element.querySelector('.icon')?.innerHTML,
           name: element.querySelector('.name')?.textContent.trim(),
-          group: infos
+          group_id: tags[i]._id
         })
       }
-      return tab;
+      return {tab, infos};
     });
     
-    await connect.db.collection("icons").insertMany(data).then((response)=>{
+    await connect.db.collection("icons").insertMany(data.tab).then((response)=>{
+      console.log(response);
+    });
+    await connect.db.collection("group_icons")
+    .updateOne({_id: ObjectId(tags[i]._id)},
+    { $set: { name: data.infos.name, licence: data.infos.licence, source: data.infos.source, link: baseURL+tags[i].link } })
+    .then((response)=>{
       console.log(response);
     });
   }

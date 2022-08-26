@@ -26,19 +26,20 @@ app.use('/', route.page.index);
  
 //api public
 app.use('/api/public/stock/post', route.api.public.poststock),
+app.use('/api/public/group/icon', route.api.public.groupicon),
+app.use('/api/public/icon', route.api.public.icon),
 
 //api private
 app.use('/api/private/auth/register', route.api.private.register);
 app.use('/api/private/auth/login', route.api.private.login);
 app.use('/api/private/auth/refreshToken', route.api.private.refreshToken);
-app.use('/api/private/user/list/get', route.api.private.listuser);
-app.use('/api/private/user/one/get', route.api.private.user);
+app.use('/api/private/user/get', route.api.private.user);
 app.use('/api/private/user/me', route.api.private.me);
-
+app.use('/api/private/icon/create', route.api.private.createicon);
 
 
 connect.start().then(()=> {
-  
+
 });
 
 

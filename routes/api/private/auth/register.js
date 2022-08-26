@@ -7,6 +7,7 @@ router.post('/', async (req, res) => {
   var objet = { 
     email: req.body.email,
     password: req.body.password,
+    type: "subscriber"
   };
   var quary = {email: req.body.email};
   connect.db.collection("users")

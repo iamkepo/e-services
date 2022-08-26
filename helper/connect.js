@@ -4,7 +4,7 @@ const uri = `mongodb://localhost:27017`;
 const clusterUrl = process.env.MONGODB_URL || uri;
 const client = new MongoClient(clusterUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 
-async function run() {
+async function start() {
 
   try{
 
@@ -22,6 +22,5 @@ async function run() {
 }
 
 module.exports = {
-  start : run,
-  db: client.db('services'),
+  start, db: client.db('services')
 };

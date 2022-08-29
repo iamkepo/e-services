@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     password: req.body.password,
   };
   connect.db.collection("users")
-  .findOne(objet)
+  .findOne(objet, {projection: { password: 0 }})
   .then((response)=> {
     //console.log(response);
     if (response == null) {

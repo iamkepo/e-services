@@ -23,5 +23,13 @@ function getUsersInfos() {
     console.log(err.response?.status);
   });
 }
+
+function me() {
+  instance.get('/private/user/me').then((response) => {
+    console.log(response.data);
+  }).catch((err) => {
+    console.log(err.response?.status);
+  });
+}
 //register(user)
-login(user, ()=> getUserInfos('63089894d712e37e51afc3a4'));
+login(user, me);

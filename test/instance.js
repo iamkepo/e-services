@@ -43,13 +43,6 @@ function login(user, callback) {
     console.log(err.response?.status);
   });
 }
-function me() {
-  instance.get('/private/auth/me').then((response) => {
-    console.log(response.data);
-  }).catch((err) => {
-    console.log(err.response?.status);
-  });
-}
 function register(user) {
   console.log('trying to register');
   instance.post('/private/auth/register', user).then((response) => {
@@ -60,4 +53,4 @@ function register(user) {
 }
 
 
-module.exports = {instance, refreshToken, login, register, me}
+module.exports = {instance, refreshToken, login, register}

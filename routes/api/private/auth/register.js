@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
       if (response == null) {
         connect.db.collection("users")
         .insertOne(objet).then((response1)=>{
-          res.json(response1);
+          res.json({message: "succes", ...response1});
         });
       } else {
         res.json({message: "cet email est déja lié à un compte"});

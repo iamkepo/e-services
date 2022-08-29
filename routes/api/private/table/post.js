@@ -4,15 +4,21 @@ const auth = require('../../../../helper/auth');
 var connect = require('../../../../helper/connect');
 
 router.post('/', auth.authenticateToken, async (req, res) => {
-  //console.log(req.body);
   var objet = { 
     name: req.body.name,
     user: req.user._id,
   };
-  var quary = {email: req.body.email};
   connect.db.collection("tables")
-  .insertOne(objet).then((response)=>{
-    res.json(response);
+  .findOne(objet)
+  .then((response)=> {
+      if (response == null) {
+        connect.db.collection("tables")
+        .insertOne({...objet, date: new Date.now()}).then((response1)=>{
+          res.json({message: "succes", ...response1});
+        });
+      } else {
+        res.json({message: "cette tables existe déja"});
+      }
   });
   
 });

@@ -5,6 +5,7 @@ module.exports = {
       poststock: require('./api/public/stock/post'),
       groupicon: require('./api/public/icon/group/get'),
       icon: require('./api/public/icon/get'),
+      pic: require('./api/public/pic'),
     },
     private: {
       register: require('./api/private/auth/register'),

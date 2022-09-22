@@ -28,6 +28,7 @@ app.use('/', route.page.index);
 app.use('/api/public/stock/post', route.api.public.poststock),
 app.use('/api/public/group/icon', route.api.public.groupicon),
 app.use('/api/public/icon', route.api.public.icon),
+app.use('/api/public/pics', route.api.public.pics),
 app.use('/api/public/pic', route.api.public.pic),
 
 //api private

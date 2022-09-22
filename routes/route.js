@@ -6,6 +6,7 @@ module.exports = {
       groupicon: require('./api/public/icon/group/get'),
       icon: require('./api/public/icon/get'),
       pic: require('./api/public/pic'),
+      pics: require('./api/public/pics'),
     },
     private: {
       register: require('./api/private/auth/register'),

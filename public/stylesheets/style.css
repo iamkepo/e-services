@@ -221,7 +221,6 @@ body {
 }
 .detail a {
   font-weight: bold;
-  margin-top: 5%;
   height: 10%;
   overflow: hidden;
   font-size: 0.9vw;
@@ -369,6 +368,12 @@ body {
     width: 100%;
     height: 60%;
   }
+  .produit-text h3{
+    font-size: 2vh;
+  }
+  .detail a {
+    font-size: 1.3vh;
+  }
 }
 @media screen and (max-width:500px){
   
@@ -377,12 +382,6 @@ body {
   }
   .fixed {
     width: 100%;
-  }
-  .col-title {
-    font-size: 3vw;
-  }
-  .col-link {
-    font-size: 2vw;
   }
 
 }

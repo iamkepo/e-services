@@ -25,9 +25,10 @@ window.addEventListener('scroll', e=> {
 })
 
 const send = (data) => {
+  // console.log(window.location.origin);
   axios({
     method: "post",
-    url: 'http://localhost:3000/api/public/stock/post', 
+    url: window.location.origin+'/api/public/stock/post', 
     data: {
       data: data,
       table: "messages"

@@ -24,8 +24,7 @@ var route = require('./routes');
 var route = require('./routes/index');
 
 //start routing
-route.page(app);
-route.api(app);
+route(app);
 
 
 connect.start().then(()=> {

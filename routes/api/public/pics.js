@@ -6,7 +6,7 @@ var router = express.Router();
 
 router.get('/:name/:page', async (req, res) => {
   const client = new GoogleImages(process.env.G_ID, process.env.G_API);
-  if (parseInt((0+req.params.page)) < 0) {
+  if (parseInt((0+req.params.page)) <= 0) {
     client.search(req.params.name, { page : 1 })
     .then(images => res.json(images))
     .catch(e => res.send(e));

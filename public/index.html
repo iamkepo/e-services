@@ -6,8 +6,7 @@
   <link rel="icon" href="./images/favicon.ico" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Zappe">
-  <meta name="keywords" content="e-services">
+  <meta name="keywords" content="Zappe e-services">
   <meta name="description" content="A votre disposition pour vos besoins de e services" />
   <title>Zappe | e-services</title>
   <link rel="stylesheet" href="./stylesheets/style.css">
@@ -34,13 +33,37 @@
   <section class="produits" id="produits">
 
     <article class="produit">
-      <img src="./images/icons.svg" alt="icons" class="produit-img"/>
-      <div class="produit-text"></div>
+      <img src="./images/picture.svg" alt="picture" class="produit-img"/>
+      <div class="produit-text">
+        <h3>Get one picture</h3>
+        <div class="detail"> 
+          <a target="_blank" href="https://zappe.herokuapp.com/api/public/pic/iamkepo/0">
+            URL: <span> https://zappe.herokuapp.com/api/public/pic/{name}/{index} </span>
+          </a>
+          <div class="params">
+            <p>PARAMS</p>
+            <p>{name} <br> TYPE: <span> string</span> EXEMPLE: <span> iamkepo </span> </p>
+            <p>{index} <br> TYPE: <span> int</span> EXEMPLE: <span> 0 </span> </p>
+          </div>
+        </div>
+      </div>
     </article>
 
     <article class="produit">
-      <div class="produit-text"></div>
-      <img src="./images/stock.svg" alt="stock" class="produit-img"/>
+      <div class="produit-text">
+        <h3>Get all pictures</h3>
+        <div class="detail"> 
+          <a target="_blank" href="https://zappe.herokuapp.com/api/public/pics/iamkepo/1">
+            URL: <span> https://zappe.herokuapp.com/api/public/pics/{name}/{page} </span>
+          </a>
+          <div class="params">
+            <p>PARAMS</p>
+            <p>{name} <br> TYPE: <span> string</span> EXEMPLE: <span> iamkepo </span> </p>
+            <p>{page} <br> TYPE: <span> int</span> EXEMPLE: <span> 1 </span> </p>
+          </div>
+        </div>
+      </div>
+      <img src="./images/pictures.svg" alt="pictures" class="produit-img"/>
     </article>
 
   </section>
@@ -55,23 +78,6 @@
   </ul>
 
   <footer class="footer">
-
-    <div class="cols">
-      <ul class="col">
-        <li class="col-title">Service client</li>
-        <li @click="open = true" class="col-link">Nous contacter</li>
-        <li class="col-link">Remboursement</li>
-        <li class="col-link">Réclamations</li>
-        <li class="col-link">Demander une facture</li>
-      </ul>
-      <ul class="col">
-        <li class="col-title">à propos de nous</li>
-        <li class="col-link">Qui sommes-nous</li>
-        <li class="col-link">Notre mission</li>
-        <li class="col-link">Nos partenaires</li>
-      </ul>
-    </div>
-
     <div class="copyright">
       <i class="far fa-copyright"></i> 
       <span>copyright 2022</span>

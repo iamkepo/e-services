@@ -12,11 +12,11 @@ router.get('/:name/:index', async (req, res) => {
       res.send(images);
     } else {
       if (parseInt(req.params.index) < 0) {
-        res.send(images[0].url);
+        res.redirect(images[0].url);
       } else if (parseInt(req.params.index) > images.length-1) {
-        res.send(images[images.length-1].url)
+        res.redirect(images[images.length-1].url)
       } else {
-        res.send(images[parseInt(req.params.index)].url);
+        res.redirect(images[parseInt(req.params.index)].url);
       }
     }
   });

@@ -205,6 +205,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  overflow: hidden;
 }
 .produit-text h3{
   height: 10%;
@@ -218,6 +219,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+  overflow: hidden;
 }
 .detail a {
   font-weight: bold;
@@ -225,6 +227,7 @@ body {
   overflow: hidden;
   font-size: 0.9vw;
   font-weight: bold;
+  overflow: hidden;
 }
 .detail a span{
   font-weight: lighter;
@@ -235,16 +238,19 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-evenly;
+  overflow: hidden;
 }
 .params p {
   font-weight: bold;
+  overflow: hidden;
 }
 .params p span {
   font-weight: lighter;
 }
 .icons {
   width: 100%;
-  height: 10vh;
+  height: 70%;
+  background-color: #FFF;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -271,8 +277,7 @@ body {
 
 .footer {
   width: 100%;
-  height: 5vh;
-  background-color: #397FAF;
+  height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -282,7 +287,8 @@ body {
 
 .copyright {
   width: 100%;
-  height: 100%;
+  height: 30%;
+  background-color: #397FAF;
   display: flex;
   flex-direction: row;
   align-items: center;

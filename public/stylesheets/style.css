@@ -51,7 +51,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  background-color: #397FAF;
+  background-color: #9d39af;
   justify-content: center;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,7 +70,7 @@ body {
 }
 .title  {
   font-weight: bold;
-  color: #397FAF;
+  color: #9d39af;
   text-transform: uppercase;
   font-size: 2.5vw;
 }
@@ -92,10 +92,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #397FAF;
+  background-color: #9d39af;
   font-size: 1.4vw;
   color: #FFF;
-  border-color: #397FAF;
+  border-color: #9d39af;
   overflow: hidden;
   transition: 1s;
 }
@@ -106,8 +106,8 @@ body {
 }
 .btn-p:hover {
   background-color: #FFF;
-  color: #397FAF;
-  border: 1px solid #397FAF;
+  color: #9d39af;
+  border: 1px solid #9d39af;
 }
 .section {
   width: 100%;
@@ -137,8 +137,8 @@ body {
 .btn {
   width: 80px;
   height: 80px;
-  border: 1px solid #397FAF;
-  background-color: #397FAF;
+  border: 1px solid #9d39af;
+  background-color: #9d39af;
   border-radius: 50%;
   text-transform: uppercase;
   color: #000;
@@ -193,7 +193,7 @@ body {
   width: 50%;
   height: 100%;
   padding: 5%;
-  background-color: #397FAF;
+  background-color: #9d39af;
   object-fit: contain;
   display: flex;
   align-items: center;
@@ -281,7 +281,7 @@ body {
   margin: 0 1%;
   border-radius: 50%;
   font-size: 1vw;
-  background: #397FAF;
+  background: #9d39af;
   color: #FFF;
   transition: all 0.5s;
 }
@@ -292,7 +292,7 @@ body {
 .copyright {
   width: 100%;
   height: 30%;
-  background-color: #397FAF;
+  background-color: #9d39af;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -335,7 +335,7 @@ body {
   align-items:center;
   justify-content: center;
   cursor: pointer;
-  background-color: #397FAF; 
+  background-color: #9d39af; 
   color: #FFF;
   margin-bottom: 2%;
 }
@@ -347,7 +347,7 @@ body {
   align-items:center;
   justify-content: center;
   cursor: pointer;
-  border: 0.5px solid  #397FAF; 
+  border: 0.5px solid  #9d39af; 
 }
 @media screen and (max-width:900px){
   body {

@@ -1,5 +1,9 @@
 @import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+:root {
+  --violet: #7d0190;
+  --white: #ffffff;
+}
 *, ::after, ::before{
   box-sizing: border-box;
   margin: 0;
@@ -51,7 +55,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  background-color: #9d39af;
+  background-color: var(--violet);
   justify-content: center;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,7 +74,7 @@ body {
 }
 .title  {
   font-weight: bold;
-  color: #9d39af;
+  color: var(--violet);
   text-transform: uppercase;
   font-size: 2.5vw;
 }
@@ -92,10 +96,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #9d39af;
+  background-color: var(--violet);
   font-size: 1.4vw;
   color: #FFF;
-  border-color: #9d39af;
+  border-color: var(--violet);
   overflow: hidden;
   transition: 1s;
 }
@@ -106,8 +110,8 @@ body {
 }
 .btn-p:hover {
   background-color: #FFF;
-  color: #9d39af;
-  border: 1px solid #9d39af;
+  color: var(--violet);
+  border: 1px solid var(--violet);
 }
 .section {
   width: 100%;
@@ -137,8 +141,8 @@ body {
 .btn {
   width: 80px;
   height: 80px;
-  border: 1px solid #9d39af;
-  background-color: #9d39af;
+  border: 1px solid var(--violet);
+  background-color: var(--violet);
   border-radius: 50%;
   text-transform: uppercase;
   color: #000;
@@ -193,7 +197,7 @@ body {
   width: 50%;
   height: 100%;
   padding: 5%;
-  background-color: #9d39af;
+  background-color: var(--violet);
   object-fit: contain;
   display: flex;
   align-items: center;
@@ -281,7 +285,7 @@ body {
   margin: 0 1%;
   border-radius: 50%;
   font-size: 1vw;
-  background: #9d39af;
+  background: var(--violet);
   color: #FFF;
   transition: all 0.5s;
 }
@@ -292,7 +296,7 @@ body {
 .copyright {
   width: 100%;
   height: 30%;
-  background-color: #9d39af;
+  background-color: var(--violet);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -335,7 +339,7 @@ body {
   align-items:center;
   justify-content: center;
   cursor: pointer;
-  background-color: #9d39af; 
+  background-color: var(--violet); 
   color: #FFF;
   margin-bottom: 2%;
 }
@@ -347,7 +351,7 @@ body {
   align-items:center;
   justify-content: center;
   cursor: pointer;
-  border: 0.5px solid  #9d39af; 
+  border: 0.5px solid  var(--violet); 
 }
 @media screen and (max-width:900px){
   body {

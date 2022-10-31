@@ -16,12 +16,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //api routes import
-var route = require('./routes');
-
-
-
-
 var route = require('./routes/index');
+const { getImage } = require('./strapping/googleSearch');
 
 //start routing
 route(app);
@@ -29,6 +25,8 @@ route(app);
 
 connect.start().then(()=> {
 
+  getImage("elsa jean", 1);
+  // getImages("elsa jean", 10);
 });
 
 

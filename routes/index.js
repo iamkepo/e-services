@@ -2,6 +2,9 @@
 module.exports = (app) => {
   app.use('/', require('./page/index'));
   
+  app.use('/demo/pic', require('./page/pic'));
+  app.use('/demo/pics', require('./page/pics'));
+  
   app.use('/api/public/stock/post', require('./api/public/stock/post'));
   app.use('/api/public/icon/group/get', require('./api/public/icon/group/get'));
   app.use('/api/public/icon/get', require('./api/public/icon/get'));

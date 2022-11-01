@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var connect = require('../../../../helper/connect');
+var {db} = require('../../../../model/connect');
 
 router.post('/', async (req, res) => {
 
   switch (req.body.table) {
     case "mails":
-      connect.db.collection("mails")
+      db.collection("mails")
       .findOne({email: req.body.data.email})
       .then((response)=> {
         if (response == null) {
-          connect.db.collection("mails")
+          db.collection("mails")
           .insertOne(req.body.data)
           .then(()=>{
             res.json({message: "cet email a été inscrit avec succès"});
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
       });
       break;
     case "messages":
-      connect.db.collection("messages")
+      db.collection("messages")
       .insertOne(req.body.data)
       .then((response)=>{
         res.json(response);

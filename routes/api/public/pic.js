@@ -1,22 +1,28 @@
-const GoogleImages = require('google-images');
-require('dotenv').config();
-
 var express = require('express');
+const { getImagesByQuery, addImages, trieOneImage } = require('../../../controller/images');
+const { getGoogleImages } = require('../../../strapping/googleSearch');
 var router = express.Router();
 
-router.get('/:name/:index', async (req, res) => {
-  const client = new GoogleImages(process.env.G_ID, process.env.G_API);
-	client.search(req.params.name)
-  .then(images => {
-    if (parseInt((0+req.params.index)) < 0) {
-      res.redirect(images[0].url);
-    } else if (parseInt((0+req.params.index)) > images.length-1) {
-      res.redirect(images[images.length-1].url)
+router.get('/:query/:index', (req, res) => {
+  console.log(req.params.query);
+  getImagesByQuery(req.params.query, (err, result) => {
+    if (err) {
+      res.sendStatus(400)
+    }
+    if (result.length > 0) {
+      res.redirect(trieOneImage(req.params.index, result).url)
     } else {
-      res.redirect(images[parseInt((0+req.params.index))].url);
+      getGoogleImages(req.params.query, (error, data) => {
+        if (error) {
+          res.sendStatus(500)
+        }
+        if (data) {
+          let list = data.map(el=>({...el, query: req.params.query}));
+          addImages(list, ()=> res.redirect(trieOneImage(req.params.index, list).url)) 
+        }
+      })
     }
   })
-  .catch(e => res.send(e));
 });
 
 module.exports = router;

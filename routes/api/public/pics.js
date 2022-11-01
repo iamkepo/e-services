@@ -1,21 +1,28 @@
-const GoogleImages = require('google-images');
-require('dotenv').config();
-
 var express = require('express');
+const { getImagesByQuery, addImages, trieOneImages } = require('../../../controller/images');
+const { getGoogleImages } = require('../../../strapping/googleSearch');
 var router = express.Router();
 
-router.get('/:name/:page', async (req, res) => {
-  const client = new GoogleImages(process.env.G_ID, process.env.G_API);
-  if (parseInt((0+req.params.page)) <= 0) {
-    client.search(req.params.name, { page : 1 })
-    .then(images => res.json(images))
-    .catch(e => res.send(e));
-  } else {
-    client.search(req.params.name, { page : parseInt((0+req.params.page)) })
-    .then(images => res.json(images))
-    .catch(e => res.send(e));
-  }
-	
+router.get('/:query/:limit', (req, res) => {
+  console.log(req.params.query);
+  getImagesByQuery(req.params.query, (err, result) => {
+    if (err) {
+      res.sendStatus(400)
+    }
+    if (result.length > 0) {
+      res.send(trieOneImages(req.params.limit, result));
+    } else {
+      getGoogleImages(req.params.query, (error, data) => {
+        if (error) {
+          res.sendStatus(500)
+        }
+        if (data) {
+          let list = data.map(el=>({...el, query: req.params.query}));
+          addImages(list, ()=> res.send(trieOneImages(req.params.limit, list))) 
+        }
+      })
+    }
+  })
 });
 
 module.exports = router;

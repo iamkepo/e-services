@@ -23,5 +23,5 @@ async function connect() {
 
 module.exports = {
   connect, 
-  db: client.db('chat')
+  db: client.db('services')
 };

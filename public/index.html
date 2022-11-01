@@ -40,13 +40,13 @@
       <div class="produit-text">
         <h3>Get one picture</h3>
         <div class="detail"> 
-          <a href="./demo/pic.html">
-            URL: <span> https://zappe.herokuapp.com/api/public/pic/{name}/{index} </span>
+          <a href="./demo/pic/">
+            URL: <span> https://zappe.herokuapp.com/api/public/pic/{query}/{index} </span>
           </a>
           <div class="params">
             <p>PARAMS</p>
-            <p>{name} TYPE: <span> string </span> EXEMPLE: <span> iamkepo </span> </p>
-            <p>{index} TYPE: <span> int </span> EXEMPLE: <span> 0 (de 0 à 9) </span> </p>
+            <p>{query} TYPE: <span> string </span> EXEMPLE: <span> mia khalifa </span> </p>
+            <p>{index} TYPE: <span> int </span> EXEMPLE: <span> 0 </span> </p>
           </div>
           
           <div class="params">
@@ -60,16 +60,16 @@
       <div class="produit-text">
         <h3>Get all pictures</h3>
         <div class="detail"> 
-          <a href="./demo/pics.html">
-            URL: <span> https://zappe.herokuapp.com/api/public/pics/{name}/{page} </span>
+          <a href="./demo/pics/">
+            URL: <span> https://zappe.herokuapp.com/api/public/pics/{query}/{page} </span>
           </a>
           <div class="params">
             <p>PARAMS</p>
-            <p>{name} TYPE: <span> string</span> EXEMPLE: <span> iamkepo </span> </p>
-            <p>{page} TYPE: <span> int</span> EXEMPLE: <span> 1 </span> </p>
+            <p>{query} TYPE: <span> string</span> EXEMPLE: <span> mia khalifa </span> </p>
+            <p>{limit} TYPE: <span> int</span> EXEMPLE: <span> 10 </span> </p>
           </div>
           <div class="params">
-            <p>RESULT TYPE: <span> array (de taille 10)</span> </p>
+            <p>RESULT TYPE: <span> array (de taille {limit})</span> </p>
           </div>
         </div>
       </div>

@@ -2,28 +2,26 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="./images/favicon.ico" />
+  <link rel="icon" href="../../images/favicon.ico" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="keywords" content="Zappe e-services">
   <meta name="description" content="Zappe est un ensemble de micro services permettant de soulager certaines stresses au développeur sur des projet frontend par raport à la recherche de lien d'image à intégrer directement et de liste d'image, etc..." />
   <title>Zappe | e-services</title>
-  <link rel="stylesheet" href="../stylesheets/pic.css">
-  <script defer src="../javascripts/cdn.min.js"></script>
+  <link rel="stylesheet" href="./style.css">
 </head>
-<body x-data="{ open: false }">
+<body x-data="app">
   
   <header class="header">
-    <input type="text" class="search">
+    <div class="form">
+      <input type="text" onkeyup="search(event.key)" value="mia khalifa" class="query input">
+      <input type="number" onkeyup="search(event.key)" value="0" class="index input">
+    </div>
   </header>
 
   <section class="section">
-    <article class="article">
-      
-    </article>
+    <article class="article"><img src="" alt="" /></article>
   </section>
-
-
 
   <footer class="footer">
     <ul class="icons">
@@ -40,7 +38,6 @@
       <span>copyright 2022</span>
     </div>  
   </footer>
-  <script src="../javascripts/axios.min.js"></script>
-  <script src="../javascripts/pic.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>

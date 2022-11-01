@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 
-var connect = require('./helper/connect');
+var {connect} = require('./model/connect');
 
 //app use
 app.use(cors())
@@ -17,16 +17,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //api routes import
 var route = require('./routes/index');
-const { getImage } = require('./strapping/googleSearch');
 
 //start routing
 route(app);
 
 
-connect.start().then(()=> {
+connect().then(()=> {
 
-  getImage("elsa jean", 1);
-  // getImages("elsa jean", 10);
 });
 
 

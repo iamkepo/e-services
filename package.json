@@ -22,5 +22,8 @@
   },
   "devDependencies": {
     "axios": "^0.27.2"
+  },
+  "engines": {
+    "node": "16.14.2"
   }
 }

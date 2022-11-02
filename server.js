@@ -7,6 +7,9 @@ const cors = require('cors');
 
 var {connect} = require('./model/connect');
 
+//api routes import
+var route = require('./routes/index');
+
 //app use
 app.use(cors())
 app.use(logger('dev'));
@@ -15,8 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//api routes import
-var route = require('./routes/index');
 
 //start routing
 route(app);

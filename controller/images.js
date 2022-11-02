@@ -23,8 +23,8 @@ function trieOneImage(index, result) {
 }
 
 function trieOneImages(limit, result) {
-  if (parseInt((0+limit)) < 0) {
-    return result[0];
+  if (parseInt((0+limit)) <= 10 ) {
+    return result.filter((el, i) => i < 10 );
   } else if (parseInt((0+limit)) > result.length-1) {
     return result;
   } else {

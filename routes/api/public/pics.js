@@ -19,7 +19,7 @@ router.get('/:query/:limit', (req, res) => {
         if (data) {
           if (data.length > 0) {
             let list = data.map(el=>({...el, query: req.params.query}));
-            addImages(list, ()=> res.redirect(trieOneImages(req.params.index, list).url)) 
+            addImages(list, ()=> res.send(trieOneImages(req.params.limit, list))) 
           }else{
             res.sendStatus(501)
           }

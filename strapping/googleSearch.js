@@ -1,9 +1,9 @@
 const puppeteer = require("puppeteer");
-const { autoScroll, recoltImages } = require("../helper/utile");
+const { autoScroll, getOnglet, recoltImages } = require("../helper/utile");
 
 const getGoogleImages = async (query, callback) => {
     
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const browser = await puppeteer.launch({headless: false, args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
 
   try {
@@ -11,7 +11,7 @@ const getGoogleImages = async (query, callback) => {
     console.log("goto page: https://www.google.com/search?q="+encodeURIComponent(query));
     await page.goto('https://www.google.com/search?q='+encodeURIComponent(query), { timeout: 0 });
       
-    const onglet = await page.evaluate(() => 'https://www.google.com'+document.querySelector(".hdtb-mitem a").attributes.href.value);
+    const onglet = await page.evaluate(getOnglet);
 
     try {
 
@@ -26,7 +26,7 @@ const getGoogleImages = async (query, callback) => {
       callback(false, data);
   
     } catch (error1) {
-      await browser.close();
+      // await browser.close();
       callback(error1, false);
     }
 

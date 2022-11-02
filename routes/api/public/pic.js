@@ -17,8 +17,12 @@ router.get('/:query/:index', (req, res) => {
           res.sendStatus(500)
         }
         if (data) {
-          let list = data.map(el=>({...el, query: req.params.query}));
-          addImages(list, ()=> res.redirect(trieOneImage(req.params.index, list).url)) 
+          if (data.length > 0) {
+            let list = data.map(el=>({...el, query: req.params.query}));
+            addImages(list, ()=> res.redirect(trieOneImage(req.params.index, list).url)) 
+          }else{
+            res.sendStatus(501)
+          }
         }
       })
     }

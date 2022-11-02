@@ -1,3 +1,11 @@
+const getOnglet = () => {
+  let els = document.querySelectorAll(".hdtb-mitem a");
+  for (let i = 0; i < els.length; i++) {
+    if (els[i].textContent == "Images") {
+      return 'https://www.google.com'+els[i].attributes.href.value
+    }
+  }
+}
 async function autoScroll(page){
   await page.setViewport({ width: 1020, height: 700 })
   await page.evaluate(async () => {
@@ -32,4 +40,4 @@ const recoltImages = () => {
   })
   return tab;
 }
-module.exports = { autoScroll, recoltImages }; 
+module.exports = { autoScroll, recoltImages, getOnglet }; 

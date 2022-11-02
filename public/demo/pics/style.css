@@ -163,7 +163,7 @@ body {
   }
   .form {
     width: 90%;
-    height: 20%;
+    height: 30%;
     max-height: 10vh;
   }
   .input {
@@ -178,11 +178,11 @@ body {
   }
   
   .section {
-    width: 70%;
+    width: 90%;
   }
   .article {
     height: auto;
-    width: 70vw;
+    width: 100%;
   }
   .article img {
     width:  100%;

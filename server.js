@@ -22,9 +22,7 @@ var route = require('./routes/index');
 route(app);
 
 
-connect().then(()=> {
-
-});
+connect();
 
 
 

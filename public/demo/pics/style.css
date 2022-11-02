@@ -1,3 +1,5 @@
+@import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 :root {
   --violet: #7d0190;
   --white: #ffffff;
@@ -158,6 +160,32 @@ body {
     width: 35px;
     height: 35px;
     font-size: 2vh;
+  }
+  .form {
+    width: 90%;
+    height: 20%;
+    max-height: 10vh;
+  }
+  .input {
+    height: 100%;
+    font-size: 1.5rem;
+  }
+  .query {
+    width: 70%;
+  }
+  .limit {
+    width: 20%;
+  }
+  
+  .section {
+    width: 70%;
+  }
+  .article {
+    height: auto;
+    width: 70vw;
+  }
+  .article img {
+    width:  100%;
   }
 }
 @media screen and (max-width:500px){

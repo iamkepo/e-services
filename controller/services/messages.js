@@ -1,7 +1,7 @@
-const { getList, getOne } = require("../model/getter");
-const { postOne } = require("../model/postter");
-const { putOne, putMany } = require("../model/putter");
-const { updateCommand } = require("./commands");
+const { getList, getOne } = require("../../model/services/getter");
+const { postOne } = require("../../model/services/postter");
+const { putOne, putMany } = require("../../model/services/putter");
+// const { updateCommand } = require("./commands");
 
 require('dotenv').config();
 
@@ -15,7 +15,7 @@ const s3 = new AWS.S3({
 const addMessage = (message, callback) => {
   message.date = new Date();
   postOne("messages", message, (response) => {
-    updateCommand(message.room, {lastmessage: message}, ()=>callback(response))
+    // updateCommand(message.room, {lastmessage: message}, ()=>callback(response))
   })
 };
 

@@ -1,20 +1,20 @@
 const { ObjectId } = require('mongodb');
-var connect = require('./connect');
+var {dbBouffe} = require('../connect');
 
 function putOne (collection, query, set, callback) {
-  connect.db.collection(collection)
+  dbBouffe.collection(collection)
   .updateOne(query,
   { $set: set })
   .then((response) => callback(response));
 }
 function putMany (collection, query, set, callback) {
-  connect.db.collection(collection)
+  dbBouffe.collection(collection)
   .updateMany(query,
   { $set: set })
   .then((response) => callback(response));
 }
 function putId (collection, id, set, callback) {
-  connect.db.collection(collection)
+  dbBouffe.collection(collection)
   .updateOne({_id: ObjectId(id)},
   { $set: set })
   .then((response) => callback(response));

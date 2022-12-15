@@ -1,6 +1,6 @@
-const { getList } = require("../model/getter");
-const { postOne, postMany } = require("../model/postter");
-const { putOne, putMany } = require("../model/putter");
+const { getList } = require("../../model/services/getter");
+const { postOne, postMany } = require("../../model/services/postter");
+const { putOne, putMany } = require("../../model/services/putter");
 
 const addImage = (query, callback) => postOne("images", query, (response) => callback(response));
 

@@ -1,6 +1,6 @@
-const { getOne, getList } = require("../model/getter");
-const { postOne } = require("../model/postter");
-const { putOne } = require("../model/putter");
+const { getOne, getList } = require("../../model/services/getter");
+const { postOne } = require("../../model/services/postter");
+const { putOne } = require("../../model/services/putter");
 
 const addUser = (user, callback) => postOne("users", user, (response) => callback(response));
 

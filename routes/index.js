@@ -5,15 +5,27 @@ module.exports = (app) => {
   app.use('/', require('./page/index'));
   
   app.use('/api/public/stock/post', require('./api/public/stock/post'));
-  // app.use('/api/public/icon/group/get', require('./api/public/icon/group/get'));
-  // app.use('/api/public/icon/get', require('./api/public/icon/get'));
   formatRoute(app, './api/public/pic');
   formatRoute(app, './api/public/pics');
 
-  // app.use('/api/private/auth/register', require('./api/private/auth/register'));
-  // app.use('/api/private/auth/login', require('./api/private/auth/login'));
-  // app.use('/api/private/auth/refreshToken', require('./api/private/auth/refreshToken'));
-  // app.use('/api/private/user/get', require('./api/private/user/get'));
-  // app.use('/api/private/user/me/get', require('./api/private/user/me/get'));
-  // app.use('/api/private/icon/create', require('./api/private/icon/create'));
+  
+  formatRoute(app, './api/bouffe/version/get');
+  formatRoute(app, './api/bouffe/version/check');
+  formatRoute(app, './api/bouffe/version/post');
+  formatRoute(app, './api/bouffe/version/put');
+  formatRoute(app, './api/bouffe/version/delete');
+
+  formatRoute(app, './api/bouffe/versions/get');
+
+
+  formatRoute(app, './api/bouffe/auth/register');
+  formatRoute(app, './api/bouffe/auth/login');
+  formatRoute(app, './api/bouffe/auth/refreshToken');
+
+  formatRoute(app, './api/bouffe/user/me');
+  formatRoute(app, './api/bouffe/user/get');
+  formatRoute(app, './api/bouffe/user/put');
+  formatRoute(app, './api/bouffe/user/delete');
+
+  formatRoute(app, './api/bouffe/users/get');
 };

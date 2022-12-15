@@ -1,5 +1,5 @@
 var express = require('express');
-const { getImagesByQuery, addImages, trieOneImage } = require('../../../controller/images');
+const { getImagesByQuery, addImages, trieOneImage } = require('../../../controller/services/images');
 const { getGoogleImages } = require('../../../strapping/googleSearch');
 var router = express.Router();
 

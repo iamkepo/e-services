@@ -1,13 +1,13 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-function generateAccessToken(user, time) {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: (time*60)+'s'});
+function generateAccessToken(user) {
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET_BOUFFE, {expiresIn: '60s'});
 }
 
 
 function generateRefreshToken(user) {
-  return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, {expiresIn: '1y'});
+  return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET_BOUFFE, {expiresIn: '1y'});
 }
 
 function authenticateToken(req, res, next) {
@@ -18,7 +18,7 @@ function authenticateToken(req, res, next) {
     return res.sendStatus(401);
   }
 
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_BOUFFE, (err, user) => {
     if (err) {
       return res.sendStatus(401);
     }
@@ -28,7 +28,7 @@ function authenticateToken(req, res, next) {
 }
 
 module.exports = {
-  generateAccessToken,
-  generateRefreshToken,
-  authenticateToken
+  generateAccessToken : generateAccessToken,
+  generateRefreshToken: generateRefreshToken,
+  authenticateToken: authenticateToken
 };

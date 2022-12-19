@@ -2,9 +2,9 @@ const { getOne, getList } = require("../../model/bouffe/getter");
 const { postOne } = require("../../model/bouffe/postter");
 const { putOne } = require("../../model/bouffe/putter");
 const { deleteOne } = require("../../model/bouffe/deleter");
-const ControllerBD = require("../controllerBD");
+// const ControllerBD = require("../controllerBD");
 
-const users = new ControllerBD("users", {number: number});
+// const users = new ControllerBD("users", {number: number});
 
 const addUser = (user, callback) => postOne("users", user, (response) => callback(response));
 

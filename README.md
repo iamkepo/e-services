@@ -1,15 +1,2 @@
 # e-services
 mes e-services réalisé avec express, socket.io et alpine js en front sur le landing page
-PORT=5000
-G_API="AIzaSyBLnK-WnpgRXx3lR1d0X0ImJ4MJee6qHX0"
-G_ID="24eeda5196c3f449b"
-INSTA_PASS="compte pour bot"
-INSTA_USER="christamour.kakpo"
-
-ACCESS_TOKEN_SECRET="4203942304923OIAZEZ"
-REFRESH_TOKEN_SECRET="AZEOIZEIZEOZIOIOI"
-MONGODB_URL="mongodb://localhost:27017"
-
-MONGODB_URL_BOUFFE="mongodb://localhost:27017"
-ACCESS_TOKEN_SECRET_BOUFFE="4203942304923OIAZEZ"
-REFRESH_TOKEN_SECRET_BOUFFE="AZEOIZEIZEOZIOIOI"

@@ -6,8 +6,7 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "version": "node ./test/version.js",
-    "user": "node ./test/user.js",
-    "plat": "node ./test/plat.js"
+    "user": "node ./test/user.js"
   },
   "dependencies": {
     "body-parser": "^1.20.1",

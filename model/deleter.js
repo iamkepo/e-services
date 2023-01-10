@@ -1,5 +1,5 @@
 const { ObjectId } = require('mongodb');
-var connect = require('../connect');
+var connect = require('./connect');
 
 function deleteOne (collection, query, set, callback) {
   connect.db.collection(collection)

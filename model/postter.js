@@ -1,13 +1,13 @@
-var {dbBouffe} = require('../connect');
+var connect = require('./connect');
 
 function postMany (collection, data, callback) {
-  dbBouffe.collection(collection)
+  connect.db.collection(collection)
   .insertMany(data)
   .then((response) => callback(response));
 }
 
 function postOne (collection, data, callback) {
-  dbBouffe.collection(collection)
+  connect.db.collection(collection)
   .insertOne(data)
   .then((response) => callback(response));
 }

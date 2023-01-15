@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "version": "node ./test/version.js",
-    "user": "node ./test/user.js"
+    "user": "node ./test/user.js",
+    "chat": "node ./test/chat.js"
   },
   "dependencies": {
     "body-parser": "^1.20.1",
@@ -19,6 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.8.0",
     "morgan": "~1.9.1",
+    "openai": "^3.1.0",
     "puppeteer": "^15.4.0",
     "socket.io": "^4.5.1"
   },

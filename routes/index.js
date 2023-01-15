@@ -4,8 +4,13 @@ function formatRoute(app, path) {
 module.exports = (app) => {
   app.use('/', require('./page/index'));
   
-  app.use('/api/public/stock/post', require('./api/public/stock/post'));
+  formatRoute(app, './api/public/stock/post');
+
   formatRoute(app, './api/public/pic');
   formatRoute(app, './api/public/pics');
+
+  formatRoute(app, './api/public/chatgpt3');
+
+  formatRoute(app, './api/public/visite/get');
 
 };

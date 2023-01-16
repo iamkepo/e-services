@@ -12,5 +12,6 @@ module.exports = (app) => {
   formatRoute(app, './api/public/chatgpt3');
 
   formatRoute(app, './api/public/visite/get');
+  formatRoute(app, './api/public/visite/post');
 
 };

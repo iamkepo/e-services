@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/:domainName', (req, res) => {
 
   console.log(req.params.domainName);
-
+  // console.log(req._remoteAddress);
   getVisite(req.headers.origin, (data)=> {
 
     if (data == null) {
